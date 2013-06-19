@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<style type="text/css">
+body {background-color:PowderBlue;}
+div.container { width:80%; background-color:AliceBlue; margin:0px; border:1px solid gray; line-height:300%; }
+
+</style>
+</head><br>
+<body>
+<center>
+<div class="container">
+
+
+
+ <form action="/filter/" method="post">
+     {% csrf_token %}
+    <input type="hidden" name="department" value="IT" >
+     <input type="submit" value="Ist year" class="button"></form>
+<form action="/filter/" method="post">
+     {% csrf_token %}
+    <input type="hidden" name="department" value="CSE" >
+     <input type="submit" value="Computer Science"  class="button"></form>
+<form action="/filter/" method="post">
+     {% csrf_token %}
+    <input type="hidden" name="department" value="ECE" >
+     <input type="submit" value="Electronics and Communcation" class="button" ></form>
+</div>
+
+
+</style>
+</body>
+</html>

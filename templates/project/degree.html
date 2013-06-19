@@ -1,0 +1,46 @@
+<style type="text/css">
+body {background-color:#CCffCC;}
+
+table,th,td {border:1px solid black;}
+table {border-collapse:collapse;}
+th {background-color:#8B4513; color:#ffffff; height:35px; }
+font { font-family: Verdena;}
+h1 {border-style:solid; border-width:2px;}
+a:link,a:visited{ font-weight:bold; color:#FFFFFF; border-style:solid; border-width:2px; background-color:#663300;
+width:120px; text-align:center; padding:4px; text-decoration:none;}
+a:hover,a:active{background-color:#CCffCC; color:Black;}
+div.footer {   font-size:15px; text-align:right; }
+
+</style>
+
+<body>
+	
+	<h1 style="color:#FFFFFF; font-size:40px; font-weight:40px; font-style:italic; background-color:#663300; text-align:center;">
+Detail Marks Certificate</h1>
+<div class="footer">
+<a href="/search/">Home</a>
+	</div>
+{% if data_list %}
+	
+	<font><b>Name:</b>&nbsp;{{data_list.Name}}<br>
+	<b>Roll Number:</b>&nbsp;{{data_list.Roll_Number}}<br>
+	<b>Branch:</b>&nbsp;{{data_list.Branch}}<br>
+	<b>Father's name:</b>&nbsp;{{data_list.Father_name}}<br>
+	<b>Date of birth:</b>&nbsp;{{data_list.Date_of_birth}}<br><br>
+	
+	<table border=1>
+	<tr><th>DMC Number</th><th>Semester</th><th>Obtained Marks</th><th>Maximum Marks</th>
+	<th>Year of Passing</th><th>Received</th></tr>
+	{% for cer_detail in cer_detail  %}
+	<tr><td><center>{{cer_detail.dmc_number}}</center></td><td><center>{{cer_detail.Semester}}</center></td>
+	<td><center>{{cer_detail.Obtained_marks}}</center></td><td><center>{{cer_detail.Maximum_marks}}</center></td>
+	<td><center>{{cer_detail.Year_of_passing}}</center></td><td><center>{{ cer_detail.Received }}</center></td></tr></center>
+	{% endfor %}
+	</table></font>
+{% else %}
+<p>No data available.</p>
+{% endif %}<br><br><br><br><br>
+
+
+
+</body>

@@ -1,0 +1,49 @@
+
+
+<style type="text/css">
+body {background-color:powderblue;}
+table,th,td{border:2px solid black; 
+font-family: Verdana;  background-color:#999999; color:#ffffff;}
+table{border-collapse:collapse;}
+table{width:70%;}
+th{height:70px; font-size:22px; }
+td{color:#000000; background-color:#EAF2D3;}
+h1 {border-style:solid; border-width:2px;}
+a:link,a:visited{ font-weight:bold; color:#FFFFFF; border-style:solid; border-width:2px; background-color:#696969;
+width:120px; text-align:center; padding:4px; text-decoration:none;}
+a:hover,a:active{background-color:PowderBlue; color:Black;}
+div.footer {   font-size:15px; text-align:right; }
+.sub:hover { background-color:#EAF2D3; color:Black;}
+</style>
+
+<body>
+    
+	<h1 style=" color:#ffffff;font-size:50px; font-weight:50px; font-style:italic; background-color:#696969; text-align:center;">
+        Basic Information</h1>
+<div class="footer">
+<a href="/search/">Home &nbsp;</a>
+	</div><br><br></div>
+{% if data_list %}
+   <table border=1 align=Center>
+    <tr><th>Roll Number</th><th>Name</th><th>Branch</th><th>For Details</th></tr>
+    {% for student_info in data_list %}
+        <tr><td><center>{{student_info.Roll_Number}}</center></td>
+        <td><center>{{student_info.Name }}</center></td>
+        <td><center>{{student_info.Branch}}</center></td>
+        <td><center><span style="cursor:move"><form action="/data/{{ student_info.Roll_Number }}/" method="get">
+        {% csrf_token %}
+        <br><input type="submit" value="View DMC" class="sub"/></span></center></td></tr></form>
+        {% endfor %}
+    </table>
+    
+
+    
+{% else %}
+    <p>No data is available.</p>
+{% endif %}
+</body><br><br><br><br>
+
+
+
+
+
